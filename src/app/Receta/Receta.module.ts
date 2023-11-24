@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Proporciona directivas como ngIf, ngFor, etc.
+import { CommonModule } from '@angular/common'; 
 import { RecetaComponent } from './Receta.component';
 import { RecetaService } from './Receta.service';
-import { HttpClientModule } from '@angular/common/http'; // Importante para hacer solicitudes HTTP
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule // Importa HttpClientModule para realizar solicitudes HTTP dentro de los servicios
+    HttpClientModule 
   ],
   declarations: [
-    RecetaComponent // Declara el componente de recetas
+    RecetaComponent 
   ],
   providers: [
-    RecetaService // Provee el servicio de recetas para ser utilizado por otros componentes
+    RecetaService 
   ],
   exports: [
-    RecetaComponent // Exporta el componente de recetas para que pueda ser utilizado en otros módulos
+    RecetaComponent 
   ]
 })
 export class RecetaModule { }
