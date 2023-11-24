@@ -1,16 +1,25 @@
 <div class="container mt-4">
   <div class="row">
+    <div class="container mt-4">
+      <div class="row">
+         <div class="col">
+           <p class="text-muted">
+             Calificación promedio de recetas: {{ calificacionPromedio.toFixed(2)}} (basado en {{ totalOpiniones }} opiniones en total)
+           </p>
+         </div>
+       </div>
+     </div>
     <div class="col-md-4" *ngFor="let receta of recetas">
       <div class="card">
         <h5 class="card-title">{{ receta.nombre }}</h5>
         <img class="card-img-top" [src]="receta.imagen" alt="Imagen de receta">
         <div class="card-body">
           <p class="card-text">Autor: {{ receta.autorReceta }}</p>
-          <p class="card-text">Calificación: {{ receta.estrellas }} ({{ receta.cantidadOpiniones }} opiniones)</p>
+          <p class="card-text">Calificación: {{ receta.estrellas }} de {{ receta.cantidadOpiniones }} opiniones</p>
           <p class="card-text">Duración: {{ receta.duracion }} minutos</p>
           <p class="card-text">Dificultad: {{ receta.dificultad }}</p>
         </div>
       </div>
-    </div>
+    </div>  
   </div>
 </div>

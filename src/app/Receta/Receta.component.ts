@@ -9,6 +9,8 @@ import { RecetaService } from './Receta.service';
 })
 export class RecetaComponent implements OnInit {
   recetas: Receta[] = [];
+  calificacionPromedio: number = 0;
+  totalOpiniones: number = 0;
 
   constructor(private recetaService: RecetaService) { }
 
@@ -25,5 +27,18 @@ export class RecetaComponent implements OnInit {
         console.error('Error al obtener las recetas', error);
       }
     );
+  }
+
+  calcularResumenRecetas(): void {
+    let sumaCalificaciones = 0;
+    let sumaOpiniones = 0;
+
+    for (const receta of this.recetas) {
+      sumaCalificaciones += receta.estrellas;
+      sumaOpiniones += receta.cantidadOpiniones;
+    }
+
+    this.calificacionPromedio = this.recetas.length > 0 ? sumaCalificaciones / this.recetas.length : 0;
+    this.totalOpiniones = sumaOpiniones;
   }
 }
