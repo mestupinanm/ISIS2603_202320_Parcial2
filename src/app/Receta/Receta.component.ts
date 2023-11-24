@@ -25,12 +25,14 @@ export class RecetaComponent implements OnInit {
     this.recetaService.getRecetas().subscribe(
       (data) => {
         this.recetas = data;
+        this.calcularResumenRecetas(); 
       },
       (error) => {
         console.error('Error al obtener las recetas', error);
       }
     );
   }
+  
 
   calcularResumenRecetas(): void {
 
@@ -49,6 +51,7 @@ export class RecetaComponent implements OnInit {
    /* aca intente hacer el de que al hacer click funcionara pero no sirvio */
   
   onSelect(receta: Receta): void {
+    receta.ingredientes = receta.ingredientes.split('|').join(', ');
     this.recetaSeleccionada = receta;
   }
 }
