@@ -8,9 +8,12 @@ import { RecetaService } from './Receta.service';
   styleUrls: ['./Receta.component.css']
 })
 export class RecetaComponent implements OnInit {
+  
   recetas: Receta[] = [];
   calificacionPromedio: number = 0;
   totalOpiniones: number = 0;
+  recetaSeleccionada?: Receta;
+  receta: Receta | undefined;
 
   constructor(private recetaService: RecetaService) { }
 
@@ -30,6 +33,7 @@ export class RecetaComponent implements OnInit {
   }
 
   calcularResumenRecetas(): void {
+
     let sumaCalificaciones = 0;
     let sumaOpiniones = 0;
 
@@ -40,5 +44,11 @@ export class RecetaComponent implements OnInit {
 
     this.calificacionPromedio = this.recetas.length > 0 ? sumaCalificaciones / this.recetas.length : 0;
     this.totalOpiniones = sumaOpiniones;
+  }
+
+   /* aca intente hacer el de que al hacer click funcionara pero no sirvio */
+  
+  onSelect(receta: Receta): void {
+    this.recetaSeleccionada = receta;
   }
 }

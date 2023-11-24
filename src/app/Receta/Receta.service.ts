@@ -15,6 +15,4 @@ export class RecetaService {
   getRecetas(): Observable<Receta[]> {
     return this.http.get<Receta[]>(this.apiUrl);
   }
-
-  // Otros métodos que podrías necesitar, como obtener una receta por su ID, etc.
 }
